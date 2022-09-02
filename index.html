@@ -16,28 +16,40 @@
     
 </head>
 <body>
-    <header >
-        <nav class="navbar" style="background-color: #e3f2fd;">
-            <div class="container-fluid">
-              <a class="navbar-brand ms-5 "><span class="bg-primary text-light rounded p-2">Get</span> <span class="bg-light text-primary rounded p-2">News</span></a>
-              
+    <header class="container mt-3">
+        <nav class="navbar d-flex justify-content-between" >
+            
+            <div class="d-flex">
+                <ul class="d-flex justify-content-around list-unstyled ">
+                    <li class="px-2 py-1 bg-primary rounded-1 text-white">News</li> <span class="px-2 py-1 text-primary fw-bold">Portal</span>
+                    <!-- <li class="px-2 py-1 list-unstyled text-primary fw-bold">Amar</li> -->
+                </ul>
 
-              <form class="d-flex" role="search">
-                <a class="navbar-brand text-primary rounded p-2">News</a>
-                <a class="navbar-brand text-dark rounded p-2 me-5">Blogs</a>
-                <button class="btn btn-outline-success me-5" type="submit">Search</button>
-              </form>
             </div>
-          </nav>
+            <div>
+                <ul class="d-flex align-items-center list-unstyled">
+                    <li class="px-2 py-1  text-primary fw-bold">News</li>
+                    <li class="px-2 py-1">Blog</li>
+                    <a class="navbar-brand" href="#">
+                        <img src="./image/avater.png" alt="" class="px-2" width="45" height="35">
+                    </a>
+
+                </ul>
+            </div>
+            
+        
+        </nav>
+        <hr>
     </header>
     <main >
         <section class="container">
-            <div class="d-flex">
+            <div class="d-flex justify-content-between flex-wrap" id="catagory-div">
 
 
             </div>
 
         </section>
+        
     </main>
 
 
