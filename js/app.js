@@ -1,29 +1,39 @@
+/* 
+Load data for add catagory dynamically
+*/
+
 const loadNewsCatagory = async() =>{
     const url= ` https://openapi.programming-hero.com/api/news/categories  `
+    /*  apply Error handler */
    try{
     const res = await fetch(url);
     const data = await res.json();
     displayNewsCatagory(data.data.news_category);
    }
+   /* catch error if any have. */
    catch(error){
     console.log(error);
 
    }
 
 }
+/* Display All News Catagory in Dynamically */
 const displayNewsCatagory = (news_category) =>{
-    console.log(news_category);
+    // console.log(news_category);
+    /* get the catagory div */
     const allCatagoryDiv = document.getElementById('catagory-div');
     let count = 0;
+    /* find each news catarory from all catagory */
     news_category.forEach(singleNews => {
-        console.log(singleNews)
+        // console.log(singleNews)
         count = count+1;
+        /* create catagory button and its class and set attribute */
         const singleCatagory = document.createElement('button');
         singleCatagory.classList.add('btn');
         singleCatagory.setAttribute('onclick',`loadNews(${singleNews.category_id},'${singleNews.category_name}')`);
         singleCatagory.setAttribute('id',`newsType-${count}`);
 
-        
+        /* set inner html */
         singleCatagory.innerHTML =`
         ${singleNews.category_name}
         `;
@@ -34,10 +44,13 @@ const displayNewsCatagory = (news_category) =>{
 
 
 }
+//display the catagory by calling function
 loadNewsCatagory();
+/* load news data  */
 const loadNews = async(category_id,category_name) =>{
+    /*  run spinner it will run by onclick function on each button */
     toggleSpinner(true);
-    console.log(category_id);
+    // console.log(category_id);
     const url= ` https://openapi.programming-hero.com/api/news/category/${'0'+category_id} `
     try{
     const res = await fetch(url);
@@ -55,6 +68,7 @@ const loadNews = async(category_id,category_name) =>{
   
     
 }
+// news card
 const displayNews = (data) =>{
     
     // sort by view
@@ -118,6 +132,8 @@ const displayNews = (data) =>{
     toggleSpinner(false);
 }
 
+// spinner function
+
 const toggleSpinner = isLoading =>{
     const loaderSection = document.getElementById('loader');
     if(isLoading){
@@ -127,6 +143,7 @@ const toggleSpinner = isLoading =>{
         loaderSection.classList.add('d-none');
     }
 }
+// load data for modal
 const loadNewsDetails = async(news_id) =>{
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
    try{
@@ -139,6 +156,7 @@ const loadNewsDetails = async(news_id) =>{
     
     }
 }
+// set modal inner html
 const displayNewsDetails = news =>{
     console.log(news);
     console.log(news.author.name);
@@ -166,6 +184,7 @@ const displayNewsDetails = news =>{
 // loadNewsDetails('0282e0e58a5c404fbd15261f11c2ab6a');
 
 loadNews('8');
+ /* conected blog and news page */
 const goToNews = () =>{
     window.location.href = 'index.html';
 }
