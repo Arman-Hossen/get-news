@@ -12,7 +12,8 @@ const displayNewsCatagory = (news_category) =>{
     news_category.forEach(singleNews => {
         console.log(singleNews)
         count = count+1;
-        const singleCatagory = document.createElement('p');
+        const singleCatagory = document.createElement('button');
+        singleCatagory.classList.add('btn');
         singleCatagory.setAttribute('onclick',`loadNews(${singleNews.category_id},'${singleNews.category_name}')`);
         singleCatagory.setAttribute('id',`newsType-${count}`);
 
@@ -37,7 +38,7 @@ const loadNews = async(category_id,category_name) =>{
     displayNews(data.data);
     const showNews = document.getElementById('input-feild');
     const showNewsValue = `${data.data.length} items found for this category ${category_name} `;
-    showNews.value = showNewsValue;
+    showNews.innerText = showNewsValue;
 
     
 }
@@ -52,6 +53,7 @@ const displayNews = (data) =>{
     newsContainer.textContent= '';
 
     data.forEach(news =>{
+        console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card');
         newsDiv.classList.add('mb-3');
@@ -89,7 +91,7 @@ const displayNews = (data) =>{
                     </div>
 
                     <div>
-                        <i class="fa-solid fa-arrow-right" data-bs-toggle="modal" data-bs-target="#phoneDetailModal"></i>
+                        <i class="fa-solid fa-arrow-right" onclick ="loadNewsDetails('${news._id}')" data-bs-toggle="modal" data-bs-target="#newsDetailModal"></i>
                     </div>
                 </div>
                 
@@ -112,6 +114,37 @@ const toggleSpinner = isLoading =>{
         loaderSection.classList.add('d-none');
     }
 }
+const loadNewsDetails = async(news_id) =>{
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayNewsDetails(data.data[0]);
+}
+const displayNewsDetails = news =>{
+    console.log(news);
+    console.log(news.author.name);
+    const modalTitle = document.getElementById('newsDetailModalLabel');
+    modalTitle.innerText = news.title;
+
+    const newsDetails = document.getElementById('news-details');
+    
+    newsDetails.innerHTML = `
+        
+        <p>ID: ${news._id ? news._id: 'No ID Found'}</p>
+        <p>Catagory No: ${news.category_id ? news.category_id : 'No category id Found'}</p>
+        <p>Author Name: ${news.author.name? news.author.name : 'No Name Found'}</p>
+        <p>Published Date: ${news.author.published_date? news.author.published_date : 'No published date Found'}</p>
+        <p>Rating: ${news.rating.number ? news.rating.number : 'No Rating Found'}</p>
+        <p>Badge: ${news.rating.badge ? news.rating.badge : 'No Badge Found'}</p>
+        <img src="${news.thumbnail_url}" alt="" >
+        <p>Total Veiw: ${news.total_view ? news.total_view : 'No Veiw Found'}</p>
+        <p>Details Information: ${news.details ? news.details : 'No details information Found'}</p>
+        
+        
+    `;
+
+}
+// loadNewsDetails('0282e0e58a5c404fbd15261f11c2ab6a');
 
 loadNews('1');
 
