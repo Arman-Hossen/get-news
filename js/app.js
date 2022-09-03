@@ -74,18 +74,15 @@ const displayNews = (data) =>{
     // sort by view
     data.sort((a, b) => b.total_view- a.total_view);
 
-
-    console.log(data);
     const newsContainer = document.getElementById('details-news');
     newsContainer.textContent= '';
 
     data.forEach(news =>{
-        console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card');
         newsDiv.classList.add('mb-3');
         
-        console.log(news);
+        // console.log(news);
         newsDiv.innerHTML=`
         <div class="row">
         <div class="col-md-4">
@@ -95,7 +92,7 @@ const displayNews = (data) =>{
             <h3>${news.title}</h3>
             <p>${news.details.length > 506 ? news.details.slice(0,506) +'...' : news.details }</p>
 
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center justify-content-between flex-sm-row flex-column">
                     <div class="d-flex align-items-center ">
                         <img src="${news.author.img}" alt="" height="30" class="rounded-circle">
                         <div >
@@ -158,8 +155,8 @@ const loadNewsDetails = async(news_id) =>{
 }
 // set modal inner html
 const displayNewsDetails = news =>{
-    console.log(news);
-    console.log(news.author.name);
+    // console.log(news);
+    // console.log(news.author.name);
     const modalTitle = document.getElementById('newsDetailModalLabel');
     modalTitle.innerText = news.title;
 
