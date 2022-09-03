@@ -59,7 +59,7 @@
                        <h2 class="accordion-header" id="headingOne">
                          <!-- start question  -->
                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Different between var , let and const ?
+                            Different among var , let and const ?
                             
          
                          </button>
@@ -67,50 +67,66 @@
                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                          <!-- answer -->
                          <div class="accordion-body">
-                           <strong>Grid is made for two-dimensional layout while Flexbox is for one.</strong> 
-                            This means Flexbox can work on either row or columns at a time, but Grids can work on both.
-                             Flexbox, gives you more flexibility while working on either element (row or column). HTML markup and CSS will be easy to manage in this type of scenario.
+                           <strong>In JavaScript, users can declare a variable using 3 keywords that are var, let, and const.</strong> <br>
+                           
+                           var keyword in JavaScript: The var is the oldest keyword to declare a variable in JavaScript. <br>
+                           
+                           Scope: Global scoped or function scoped. The scope of the var keyword is the global or function scope. It means variables defined outside the function can be accessed globally, and variables defined inside a particular function can be accessed within the function. <br>
+                           
+                           let keyword in JavaScript: The let keyword is an improved version of the var keyword. <br>
+                           
+                           Scope: block scoped: The scope of a let variable is only block scoped. It can’t be accessible outside the particular block ({block}). <br>
+                           
+                           const keyword in JavaScript: The const keyword has all the properties that are the same as the let keyword, except the user cannot update it. <br>
+                           
+                           Scope: block scoped: When users declare a const variable, they need to initialize it, otherwise, it returns an error. The user cannot update the const variable once it is declared.
                          </div>
                        </div>
                      </div>
                      <div class="accordion-item">
                        <h2 class="accordion-header" id="headingTwo">
                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                             What is the difference between tailwind and bootstrap?
+                            Difference between arrow and regular function?
+
          
                          </button>
                        </h2>
                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                          <div class="accordion-body">
-                           <strong>Tailwind offers predesigned widgets</strong> 
-                            to build a site from scratch with fast UI development. Bootstrap comes with a set of pre-styled responsive, mobile-first components that possess a definite UI kit. Tailwind CSS uses a set of utility classes to create a neat UI with more flexibility and uniqueness.
+                           <strong>Arrow functions – a new feature introduced in ES6 – </strong> 
+                           enable writing concise functions in JavaScript. While both regular and arrow functions work in a similar manner, yet there are certain interesting differences between them.
+                            Unlike regular functions, arrow functions do not have their own this.Arguments objects are not available in arrow functions, but are available in regular functions.
+                            Regular functions created using function declarations or expressions are ‘constructible’ and ‘callable’. Since regular functions are constructible, they can be called using the ‘new’ keyword. However, the arrow functions are only ‘callable’ and not constructible. Thus, we will get a run-time error on trying to construct a non-constructible arrow functions using the new keyword.
                          </div>
                        </div>
                      </div>
                      <div class="accordion-item">
                        <h2 class="accordion-header" id="headingThree">
                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                             What is the CSS box model?
+                            Difference among map,foreach,filter and find?
                          </button>
                        </h2>
                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                          <div class="accordion-body">
-                           <strong>The CSS box model is a container that contains multiple properties</strong> 
-                            including borders, margin, padding, and the content itself. It is used to create the design and layout of web pages. It can be used as a toolkit for customizing the layout of different elements. The web browser renders every element as a rectangular box according to the CSS box model. Box-Model has multiple properties in CSS.
+                           <strong> Foreach takes a callback function and run that callback</strong> 
+                           function on each element of array one by one.
+                           The main difference between forEach and filter is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.
+                           Also take notice filter does not update the existing array it will return a new filtered array every time.
+                           Map like filter & foreach takes a callback and run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.
                          </div>
                        </div>
                      </div>
                      <div class="accordion-item">
                          <h2 class="accordion-header" id="headingFour">
                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                             What is the semantic tag?
+                            Why you are using template string?
                            </button>
                          </h2>
                          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                            <div class="accordion-body">
-                             <strong>The core characteristic of a semantic element is that it clearly communicated its meaning</strong>
-                              to both the developer and the browser. These elements clearly define its content. The HTML semantics refers to the tags that provide meaning to an HTML page rather than just presentation. It makes HTML more comprehensible by better defining the different sections and layout of web pages.
- 
+                             <strong> Template strings are a powerful feature of modern JavaScript released in ES6.</strong>
+                             It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript.
+                              It allows us to create strings that are complex and contain dynamic elements. Another great thing that comes with template strings are tags. Tags are functions that take a string and the decomposed parts of the string as parameters and are great for converting strings to different entities.
                            </div>
                          </div>
                        </div>
